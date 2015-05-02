@@ -1,0 +1,20 @@
+'use strict';
+
+var FSController = require('../lib/fs_controller.js');
+var expect = require('chai').expect;
+
+describe('fs_controller.js', function(){
+	var fsCntrl = new FSController();
+	//console.log(process.cwd());	
+
+	console.log(fsCntrl.wat);
+
+	describe('#loadBuffer()', function(){
+		it('should have a buffer with a bitmapfile', function(){
+			fsCntrl.loadBitmap('./img/bitmap1.bmp', function(err, data){
+				if (err) throw err;
+				expect(Buffer.isBuffer(data)).to.eql(true);
+			});
+		});
+	});
+});
