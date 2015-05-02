@@ -13,8 +13,6 @@ describe('bitmap.js', function(){
 	});
 
 	it('should have a buffer object', function(){
-		console.log(bitmap);	
-			  //console.log('data offset: ' + bitmap.header.dataOffset);	
+		expect(bitmap.header.fileType).to.eql('BM');
 	});
-	
 });
