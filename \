@@ -21,12 +21,11 @@ ee.on('bufferLoaded', function(buffer){
 
 ee.on('transform', function(){
 	console.log('inititate transform');
-	for (var i in bitmap.colorTable){
-		var curCol = bitmap.colorTable[i];
-		curCol = bitmap.colorTable[i]; 
-		console.log(i);
-		bitmap.colorTable[i] = ColorTranformer.invert(curCol);
-		bitmap.colorTable[i] = ColorTranformer.setHue(curCol, 100);
+	for (var index in bitmap.colorTable){
+		console.log(index);
+		bitmap.colorTable[index] = ColorTranformer.setRGBA(33,44,55,22);
+		//curcolor = ColorTranformer.lighten(10)
+		console.log(bitmap.colorTable[index]);
 	}
 	ee.emit('write');
 });
@@ -41,4 +40,4 @@ ee.on('write', function(){
 
 function randomNum(){
 	return Math.floor(Math.random() * 255);
-}
+};

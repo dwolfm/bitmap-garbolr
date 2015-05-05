@@ -32,12 +32,11 @@ describe('fs_controller.js', function(){
 			
 			it('should write a bitmapfile from a buffer', function(){
 
-						expect(result).to.eql(true);
+						expect(result).to.eql(null);
 			});
 
 			after(function(){
-				//fs.unlink('./lul.wat');
-				console.log('deleted tmp file');
+				fs.unlink('./lul.wat');
 			});
 	});
 });
