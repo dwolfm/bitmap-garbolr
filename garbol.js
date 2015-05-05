@@ -23,7 +23,6 @@ ee.on('transform', function(){
 	console.log('inititate transform');
 	for (var i in bitmap.colorTable){
 		var curCol = bitmap.colorTable[i];
-		//bitmap.colorTable[i] = ColorTranformer.setRGBA(100,  255 - i , (i * 2) % 256, 255);
 		if (i % 100 < 10) {
 				  bitmap.colorTable[i] = ColorTranformer.dodge(bitmap.colorTable[i], i) 
 		} else {
