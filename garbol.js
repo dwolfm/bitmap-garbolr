@@ -8,7 +8,7 @@ var ee = new EventEmitter();
 
 var bitmap = null;
 
-fsCntrl.loadBitmap('./img/town.bmp', function(err, data){
+fsCntrl.loadBitmap('./img/me.bmp', function(err, data){
 	if (err) throw err;
 	ee.emit('bufferLoaded', data);	
 });
@@ -23,10 +23,12 @@ ee.on('transform', function(){
 	console.log('inititate transform');
 	for (var i in bitmap.colorTable){
 		var curCol = bitmap.colorTable[i];
-		curCol = bitmap.colorTable[i]; 
-		console.log(i);
-		bitmap.colorTable[i] = ColorTranformer.invert(curCol);
-		bitmap.colorTable[i] = ColorTranformer.setHue(curCol, 100);
+		//bitmap.colorTable[i] = ColorTranformer.setRGBA(100,  255 - i , (i * 2) % 256, 255);
+		if (i % 100 < 10) {
+				  bitmap.colorTable[i] = ColorTranformer.dodge(bitmap.colorTable[i], i) 
+		} else {
+				  bitmap.colorTable[i] = ColorTranformer.setRGBA(randomNum(),255-i,i,255);
+		}
 	}
 	ee.emit('write');
 });

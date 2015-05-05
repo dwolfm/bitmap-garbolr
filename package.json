@@ -4,7 +4,8 @@
   "description": "the #1 garbolr for your bitmaps",
   "main": "garbol.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+	 "start": "node garbol.js"
   },
   "repository": {
     "type": "git",
